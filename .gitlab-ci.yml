@@ -1,0 +1,16 @@
+# .gitlab-ci.yml for backend
+
+# Define the stages of the CI/CD pipeline
+stages:
+  - build
+
+# Define the jobs
+build:
+  stage: build
+  image: maven:latest
+  script:
+    - cd back-end-smart-city  # Adjust the directory if needed
+    - mvn clean package -DskipTests
+  artifacts:
+    paths:
+      - back-end-smart-city/target/*.jar
